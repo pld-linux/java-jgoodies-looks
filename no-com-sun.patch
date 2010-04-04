@@ -1,0 +1,112 @@
+diff -ur looks-2.2.1.orig/src/core/com/jgoodies/looks/Options.java looks-2.2.1/src/core/com/jgoodies/looks/Options.java
+--- looks-2.2.1.orig/src/core/com/jgoodies/looks/Options.java	2009-01-28 16:40:46.000000000 +0100
++++ looks-2.2.1/src/core/com/jgoodies/looks/Options.java	2009-01-28 16:41:43.000000000 +0100
+@@ -40,8 +40,6 @@
+ 
+ import com.jgoodies.looks.common.ShadowPopup;
+ import com.jgoodies.looks.plastic.PlasticLookAndFeel;
+-import com.jgoodies.looks.windows.WindowsLookAndFeel;
+-import com.sun.java.swing.plaf.windows.WindowsComboBoxUI;
+ 
+ /**
+  * Provides access to optional features of the JGoodies L&amp;Fs
+@@ -895,12 +893,6 @@
+         putLookAndFeelReplacement(
+             "javax.swing.plaf.metal.MetalLookAndFeel",
+             PLASTIC3D_NAME);
+-        putLookAndFeelReplacement(
+-            "com.sun.java.swing.plaf.windows.WindowsLookAndFeel",
+-            JGOODIES_WINDOWS_NAME);
+-        putLookAndFeelReplacement(
+-                "com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel",
+-                NO_REPLACEMENT);
+     }
+ 
+     /**
+Only in looks-2.2.1.orig/src/core/com/jgoodies/looks: windows
+diff -ur looks-2.2.1.orig/src/demo/com/jgoodies/looks/demo/DemoFrame.java looks-2.2.1/src/demo/com/jgoodies/looks/demo/DemoFrame.java
+--- looks-2.2.1.orig/src/demo/com/jgoodies/looks/demo/DemoFrame.java	2009-01-28 16:40:46.000000000 +0100
++++ looks-2.2.1/src/demo/com/jgoodies/looks/demo/DemoFrame.java	2009-01-28 16:42:31.000000000 +0100
+@@ -46,7 +46,6 @@
+ import com.jgoodies.looks.LookUtils;
+ import com.jgoodies.looks.Options;
+ import com.jgoodies.looks.plastic.PlasticLookAndFeel;
+-import com.jgoodies.looks.windows.WindowsLookAndFeel;
+ 
+ /**
+  * Builds the main frame in the Simple Looks Demo.
+@@ -218,9 +217,6 @@
+             PlasticLookAndFeel.BORDER_STYLE_KEY,
+             settings.getToolBarPlasticBorderStyle());
+         toolBar.putClientProperty(
+-            WindowsLookAndFeel.BORDER_STYLE_KEY,
+-            settings.getToolBarWindowsBorderStyle());
+-        toolBar.putClientProperty(
+             PlasticLookAndFeel.IS_3D_KEY,
+             settings.getToolBar3DHint());
+ 
+@@ -384,4 +380,4 @@
+     }
+ 
+ 
+-}
+\ No newline at end of file
++}
+diff -ur looks-2.2.1.orig/src/demo/com/jgoodies/looks/demo/MenuBarView.java looks-2.2.1/src/demo/com/jgoodies/looks/demo/MenuBarView.java
+--- looks-2.2.1.orig/src/demo/com/jgoodies/looks/demo/MenuBarView.java	2009-01-28 16:40:46.000000000 +0100
++++ looks-2.2.1/src/demo/com/jgoodies/looks/demo/MenuBarView.java	2009-01-28 16:42:54.000000000 +0100
+@@ -39,7 +39,6 @@
+ 
+ import com.jgoodies.looks.Options;
+ import com.jgoodies.looks.plastic.PlasticLookAndFeel;
+-import com.jgoodies.looks.windows.WindowsLookAndFeel;
+ 
+ /**
+  * Builds the menu bar and pull-down menus in the Simple Looks Demo.
+@@ -74,8 +73,6 @@
+ 							  settings.getMenuBarHeaderStyle());
+ 		bar.putClientProperty(PlasticLookAndFeel.BORDER_STYLE_KEY,
+ 							  settings.getMenuBarPlasticBorderStyle());
+-		bar.putClientProperty(WindowsLookAndFeel.BORDER_STYLE_KEY,
+-							  settings.getMenuBarWindowsBorderStyle());
+ 		bar.putClientProperty(PlasticLookAndFeel.IS_3D_KEY,
+ 							  settings.getMenuBar3DHint());
+ 
+@@ -455,4 +452,4 @@
+     }
+ 
+ 
+-}
+\ No newline at end of file
++}
+diff -ur looks-2.2.1.orig/src/demo/FontTest.java looks-2.2.1/src/demo/FontTest.java
+--- looks-2.2.1.orig/src/demo/FontTest.java	2009-01-28 16:40:46.000000000 +0100
++++ looks-2.2.1/src/demo/FontTest.java	2009-01-28 16:43:31.000000000 +0100
+@@ -11,7 +11,6 @@
+ import com.jgoodies.looks.LookUtils;
+ import com.jgoodies.looks.plastic.PlasticLookAndFeel;
+ import com.jgoodies.looks.plastic.PlasticXPLookAndFeel;
+-import com.jgoodies.looks.windows.WindowsLookAndFeel;
+ 
+ 
+ /**
+@@ -275,12 +274,7 @@
+ 
+ 
+     private FontSet getWindowsFontSet() {
+-        try {
+-            UIManager.setLookAndFeel(new WindowsLookAndFeel());
+-            return WindowsLookAndFeel.getFontPolicy().getFontSet("Windows", UIManager.getDefaults());
+-        } catch (UnsupportedLookAndFeelException e) {
+             return null;
+-        }
+     }
+ 
+ 
+@@ -313,4 +307,4 @@
+     }
+ 
+ 
+-}
+\ No newline at end of file
++}

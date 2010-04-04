@@ -1,0 +1,17 @@
+--- looks-2.2.1/build.xml.orig	2009-01-28 17:04:48.000000000 +0100
++++ looks-2.2.1/build.xml	2009-01-28 17:04:51.000000000 +0100
+@@ -286,14 +286,6 @@
+                         excludes="Tiny.*, FontTest.*"          />
+ 			<fileset    dir="${src.demo.dir}" 
+ 			            includes="com/jgoodies/looks/demo/resources/**/*" />
+-			<manifest>
+-                <attribute name ="Built-By" 
+-                           value="${user.name}"/>
+-                <attribute name ="Main-Class" 
+-                           value="com.jgoodies.looks.demo.DemoFrame"/>
+-                <attribute name ="Class-Path" 
+-                           value="../lib/${lib.forms.name} ../${dist.all.name}"/>
+-            </manifest>		
+         </jar>
+ 	</target>
+ 	
