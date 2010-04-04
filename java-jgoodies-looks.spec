@@ -26,7 +26,7 @@ BuildRequires:	ant
 BuildRequires:	jpackage-utils >= 1.6
 BuildRequires:	rpm >= 4.4.9-56
 BuildRequires:	rpm-javaprov
-BuildRequires:	rpmbuild(macros) >= 1.533
+BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	sed >= 4.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -87,7 +87,7 @@ including the "uif_lite" classes.
 %setup -q -n %{shortname}-%{version}
 %undos build.xml
 %undos *.txt *.html docs/*.* docs/guide/*.*
-find -name '*.java' -print0 | xargs -0 %{__sed} -i -e 's,\r$,,'
+find -name '*.java' -print0 | xargs -0 %undos
 
 %patch0 -p1
 
