@@ -10,11 +10,11 @@
 Summary:	Free high-fidelity Windows and multi-platform appearance
 Name:		java-%{srcname}
 Version:	2.2.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries/Java
 URL:		http://www.jgoodies.com/freeware/looks/
-Source0:	http://www.jgoodies.com/download/libraries/%{shortname}/%{shortname}-2_2_1.zip
+Source0:	http://www.jgoodies.com/download/libraries/%{shortname}/%{shortname}-%{ver}.zip
 # Source0-md5:	0d191029f45b81a90c835263e0c5af2e
 Patch0:		build.patch
 Patch1:		no-com-sun.patch
@@ -85,6 +85,10 @@ including the "uif_lite" classes.
 
 %prep
 %setup -q -n %{shortname}-%{version}
+%undos build.xml
+%undos *.txt *.html docs/*.* docs/guide/*.*
+find -name '*.java' -print0 | xargs -0 %{__sed} -i -e 's,\r$,,'
+
 %patch0 -p1
 
 # unzip the look&feel settings from bundled jar before we delete it
@@ -112,11 +116,6 @@ rm src/core/com/jgoodies/looks/common/ExtBasicArrowButtonHandler.java
 %patch2 -p1
 
 %patch3 -p1
-
-# Fix the line endings!
-for file in *.txt *.html docs/*.* docs/guide/*.*; do
-	sed -i 's/\r//' $file
-done
 
 %build
 %ant -Ddescriptors.dir=. compile jar %{?with_javadoc:javadoc}
