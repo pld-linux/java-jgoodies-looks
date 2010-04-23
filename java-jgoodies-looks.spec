@@ -21,10 +21,8 @@ Patch1:		no-com-sun.patch
 Patch2:		remove-jdk-stuff.patch
 Patch3:		demo-manifest.patch
 BuildRequires:	ant
-%{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
-%{?with_java_sun:BuildRequires:	java-sun}
+BuildRequires:	jdk
 BuildRequires:	jpackage-utils >= 1.6
-BuildRequires:	rpm >= 4.4.9-56
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	sed >= 4.0
