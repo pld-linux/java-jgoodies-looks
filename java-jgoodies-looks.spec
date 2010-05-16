@@ -26,6 +26,7 @@ BuildRequires:	jpackage-utils >= 1.6
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	sed >= 4.0
+BuildRequires:	unzip
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
