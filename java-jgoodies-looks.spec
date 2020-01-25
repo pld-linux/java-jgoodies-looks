@@ -6,7 +6,6 @@
 %define		shortname	looks
 %define		srcname		jgoodies-%{shortname}
 %define		ver	%(echo %{version} | tr . _)
-%include	/usr/lib/rpm/macros.java
 Summary:	Free high-fidelity Windows and multi-platform appearance
 Name:		java-%{srcname}
 Version:	2.2.1
