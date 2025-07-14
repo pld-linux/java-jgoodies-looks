@@ -87,7 +87,7 @@ including the "uif_lite" classes.
 %undos *.txt *.html docs/*.* docs/guide/*.*
 find -name '*.java' -print0 | xargs -0 %undos
 
-%patch0 -p1
+%patch -P0 -p1
 
 # unzip the look&feel settings from bundled jar before we delete it
 # (taken from Gentoo ebuild)
@@ -104,16 +104,16 @@ rm -r docs/api
 # (Unless we're compiling with a Sun JVM)
 %if %{with java_sun}
 %else
-%patch1 -p1
+%patch -P1 -p1
 rm -r src/core/com/jgoodies/looks/windows
 %endif
 
 # Delete a file that's a copy of something distributed by Sun, and patch the files that
 # use it so they don't.
 rm src/core/com/jgoodies/looks/common/ExtBasicArrowButtonHandler.java
-%patch2 -p1
+%patch -P2 -p1
 
-%patch3 -p1
+%patch -P3 -p1
 
 %build
 %ant -Ddescriptors.dir=. compile jar %{?with_javadoc:javadoc}
