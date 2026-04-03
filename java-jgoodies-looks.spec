@@ -9,7 +9,7 @@
 Summary:	Free high-fidelity Windows and multi-platform appearance
 Name:		java-%{srcname}
 Version:	2.2.1
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries/Java
 URL:		http://www.jgoodies.com/freeware/looks/
