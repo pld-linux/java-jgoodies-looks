@@ -3,13 +3,15 @@
 %bcond_without	javadoc		# don't build javadoc
 %bcond_with	java_sun	# build with java-sun
 
+%{?use_default_jdk:%use_default_jdk 8}
+
 %define		shortname	looks
 %define		srcname		jgoodies-%{shortname}
 %define		ver	%(echo %{version} | tr . _)
 Summary:	Free high-fidelity Windows and multi-platform appearance
 Name:		java-%{srcname}
 Version:	2.2.1
-Release:	3
+Release:	4
 License:	BSD
 Group:		Libraries/Java
 URL:		http://www.jgoodies.com/freeware/looks/
@@ -20,10 +22,10 @@ Patch1:		no-com-sun.patch
 Patch2:		remove-jdk-stuff.patch
 Patch3:		demo-manifest.patch
 BuildRequires:	ant
-BuildRequires:	jdk
+%buildrequires_jdk
 BuildRequires:	jpackage-utils >= 1.6
 BuildRequires:	rpm-javaprov
-BuildRequires:	rpmbuild(macros) >= 1.553
+BuildRequires:	rpmbuild(macros) >= 1.556
 BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 BuildArch:	noarch
